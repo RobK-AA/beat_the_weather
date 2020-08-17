@@ -1,0 +1,33 @@
+body > h3 {
+  text-align: center;
+  font-size: 36px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 700;
+}
+
+#map {
+      height: 400px;
+      width: 800px;
+}
+
+#map:hover, .map-container-inner:hover {
+  cursor: url('https://www.metaweather.com/api/static/img/weather/c.svg') !important;
+}
+
+.location {
+  text-align-last: center;
+  width: 100%;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.latitude-container, .longitude-container, #latitude, #longitude {
+  text-align: left;
+  display: block;
+}
+
+.map-container-inner {
+  width: 100%;
+  text-align: -webkit-center;
+}

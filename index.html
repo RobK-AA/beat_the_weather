@@ -10,7 +10,29 @@
 </head>
 
 <body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ35mMQ6UmGSXr3-HbwJIfmUsQg0zt7WI&callback=initMap" async
+    defer>
+    </script>
   <h3>Beat The Weather!</h3>
+  <div class="location">
+
+    <div class="latitude-container">
+      <label for="latitude">Latitude:</label>
+      <div id="latitude"></div>
+    </div>
+    
+    <div class="longitude-container">
+      <label for="longitude">Longitude:</label>
+      <div id="longitude"></div>
+    </div>
+    
+  </div>
+
+  <div class="map-container-inner">
+    <div id="map"></div>
+  </div>
+  
+  
   <script src="./dist/main.js"></script>
 </body>
 
