@@ -2,7 +2,7 @@
 
 Welcome to "Beat the Weather", a game that puts your memory and navigatory skills to the test!
 Faced with a map of a given area, players must navigate from one end of the map to the other without 
-getting caught in bad weather (either heavy rain or a thunderstorm). The game will use real maps and real, up-to-date weather forcasts.
+getting caught in bad weather (either heavy rain or a thunderstorm). The game will use real maps and real, up-to-date weather forecasts.
 
 In "Beat The Weather," players will be able to
   - play on a new, randomized map every round
@@ -12,7 +12,7 @@ In "Beat The Weather," players will be able to
 
 ![Wireframes](wireframes.png)
 
-Data for both the map and weather will be obtained via public api's. The game utilizes Javascript, HTML5 and CSS.
+Data for both the map and weather will be obtained via public api's: google maps and MetaWeather. The game utilizes Javascript, HTML5 and CSS.
 
 Scripts will mainly be stored in 4 files: map.js, instructions.js, game.js & effects.js.
 
