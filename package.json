@@ -1,0 +1,28 @@
+{
+  "name": "beat_the_weather",
+  "version": "1.0.0",
+  "description": "An interactive  game that tests a player's ability to avoid bad weather.",
+  "main": "index.js",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "webpack:watch": "webpack --watch --config webpack.dev.js",
+    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobK-AA/beat_the_weather.git"
+  },
+  "author": "Rob Kornblum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobK-AA/beat_the_weather/issues"
+  },
+  "homepage": "https://github.com/RobK-AA/beat_the_weather#readme"
+}
