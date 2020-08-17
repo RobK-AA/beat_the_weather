@@ -11,12 +11,14 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: location,
     zoom: 13 + Math.random(),
-    disableDoubleClickZoom: false
+    disableDoubleClickZoom: false,
+    draggableCursor: "url(/dist/images/clear.png), auto !important",
   });
   
-  google.maps.event.addListener(map, "mousemove", function (event) {
-    document.getElementById("latitude").innerHTML = event.latLng.lat();
-    document.getElementById("longitude").innerHTML = event.latLng.lng();
+  google.maps.event.addListener(map, "mousemove", function (e) {
+    document.getElementById("latitude").textContent = e.latLng.lat();
+    document.getElementById("longitude").textContent = e.latLng.lng();
   });
+  
 }
 

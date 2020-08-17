@@ -8,10 +8,13 @@ body > h3 {
 #map {
       height: 400px;
       width: 800px;
+      cursor: auto;
+      cursor: url(/dist/images/clear.png), auto !important;
 }
 
-#map:hover, .map-container-inner:hover {
-  cursor: url('https://www.metaweather.com/api/static/img/weather/c.svg') !important;
+#map > div {
+      cursor: auto;
+      cursor: url(/dist/images/clear.png), auto !important;
 }
 
 .location {
