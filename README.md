@@ -10,6 +10,8 @@ In "Beat The Weather," players will be able to
   - record the number of consecutive rounds a player has won
   - turn off the "game" aspect of the app and just explore the entire globe with their cursor to watch for the effects surrounding different weather events
 
+![Wireframes](wireframes.png)
+
 Data for both the map and weather will be obtained via public api's. The game utilizes Javascript, HTML5 and CSS.
 
 Scripts will mainly be stored in 4 files: map.js, instructions.js, game.js & effects.js.
