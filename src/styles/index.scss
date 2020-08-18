@@ -10,6 +10,8 @@ body > h3 {
       width: 800px;
       cursor: auto;
       cursor: url(/dist/images/clear.png), auto !important;
+      border: solid black 5px;
+      margin-top: 10px;
 }
 
 #map > div {
@@ -18,16 +20,19 @@ body > h3 {
 }
 
 .location {
-  text-align-last: center;
+  align-items: center;
   width: 100%;
-  justify-items: center;
   display: flex;
   flex-direction: column;
 }
 
 .latitude-container, .longitude-container, #latitude, #longitude {
   text-align: left;
-  display: block;
+  display: flex;
+}
+
+.latitude, .longitude {
+  display: inline-block;
 }
 
 .map-container-inner {
