@@ -19,6 +19,12 @@ body > h3 {
       cursor: url(/dist/images/clear.png), auto !important;
 }
 
+.score-container {
+  text-align: center;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 30px;
+}
 .location {
   align-items: center;
   width: 100%;
