@@ -2,7 +2,12 @@ import "./styles/index.scss";
 import Canvas from "./scripts/canvas";
 
 initMap();
+
+const loader = document.getElementById('loader');
+loader.style.display = "none";
+document.getElementById('fetch-weather').textContent = "Fetching weather...";
 Canvas.createCanvas();
+
 function initMap() {
   let map;
   let latitude = 40.8 - Math.random();
@@ -37,7 +42,7 @@ function initMap() {
 
 
 function getWeather(lat, long, prevLat, prevLng) {
-  
+  loader.style.display = "block";
   fetch(`http://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=civil&output=json`)
     .then((response) => response.json())
     .then((data) => {
@@ -58,8 +63,8 @@ function updateScore(data, prevLat, prevLng) {
   let newLng = document.getElementById('longitude').textContent
 
   const { prec_type, rh2m, weather } = data.dataseries[0];
-
-  if (prec_type === "rain" || weather.include("rain")) {
+  getLocation(newLat, newLng);
+  if (prec_type === "rain" || weather.includes("rain") || weather.includes("shower")) {
     alert('You got caught in the rain!');
     score.textContent = 0;
   } else if ((Math.abs(newLat - prevLat) < .1 && Math.abs(newLng - prevLng) < .1) && (prevLat) && score !== 0) {
@@ -67,5 +72,16 @@ function updateScore(data, prevLat, prevLng) {
     score.textContent = 0;
   } else {
     score.textContent = parseInt(score.textContent) + 1;
+    loader.style.display = "none"
   }
 };
+
+function getLocation(lat, lng) {
+  fetch(`https://us1.locationiq.com/v1/reverse.php?key=9819a97aea2239&lat=${lat}&lon=${lng}&format=json`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => console.log(error)
+    );
+}
