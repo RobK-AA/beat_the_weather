@@ -14,6 +14,11 @@
     defer>
     </script>
   <h3>Beat The Weather!</h3>
+  <div class="score-container">
+    <label for="score">Score:</label>
+    <div id="score">0</div>
+    <div id="loader"><span id="fetch-weather"></span></div>
+  </div>
   <div class="location">
 
     <div class="latitude-container">
@@ -26,11 +31,19 @@
       <div id="longitude"></div>
     </div>
     
+  
+    <div id="weather-container">
+      <label for="temp">Current Temp:</label>
+      <div id="temp"></div>
+      <label for="weather">Current Weather:</label>
+      <div id="weather"></div>
+    </div>
+    <button onClick="window.location.href=window.location.href">Refresh Map</button>
   </div>
-
+  
   <div class="map-container-inner">
     <div id="map"></div>
-  </div>
+  </div>ß
   
   
   <script src="./dist/main.js"></script>
