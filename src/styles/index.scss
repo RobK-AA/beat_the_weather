@@ -1,8 +1,30 @@
-body > h3 {
+body {
+  margin: 0;
+  width: 100%;
+  background-image: url('https://thumbs.gfycat.com/GargantuanMammothFrogmouth-size_restricted.gif');
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
+
+
+body > #header {
   text-align: center;
   font-size: 36px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  -webkit-text-fill-color: whitesmoke;
+  -webkit-text-stroke-color: black;
   font-weight: 700;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 2px 2px black;
+}
+
+#runner {
+  font-family: monospace;
+  font-size: 20px;
+  width: 65%;
 }
 
 #map {
@@ -27,6 +49,7 @@ body > h3 {
   height: 120px;
   animation: spin 2s linear infinite;
   text-align: center;
+  font-family: monospace;
 }
 
 #fetch-weather {
@@ -73,4 +96,18 @@ body > h3 {
 .map-container-inner {
   width: 100%;
   text-align: -webkit-center;
+}
+
+#main-container {
+  display: flex;
+}
+
+#info-banner {
+  width: 50%;
+  display: inline-block;
+}
+
+#instructions-container {
+  width: 50%;
+  display: inline-block;
 }

@@ -9,38 +9,48 @@
   <title>Beat The Weather</title>
 </head>
 
-<body>
+<body id="body">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ35mMQ6UmGSXr3-HbwJIfmUsQg0zt7WI&callback=initMap" async
     defer>
     </script>
-  <h3>Beat The Weather!</h3>
-  <div class="score-container">
-    <label for="score">Score:</label>
-    <div id="score">0</div>
+  <div id="header"> 
+    <h3 id="heading">Beat The Weather!</h3>
     <div id="loader"><span id="fetch-weather"></span></div>
   </div>
-  <div class="location">
+  <div id="main-container">
+    <div id="info-banner">
+      <div class="score-container">
+        <label for="score">Score:</label>
+        <div id="score">0</div>
+      </div>
+      <div class="location" id="location-box">
 
-    <div class="latitude-container">
-      <label for="latitude">Latitude:</label>
-      <div id="latitude"></div>
+        <div class="latitude-container">
+          <label for="latitude">Latitude:</label>
+          <div id="latitude"></div>
+        </div>
+        
+        <div class="longitude-container">
+          <label for="longitude">Longitude:</label>
+          <div id="longitude"></div>
+        </div>
+        
+      
+        <div id="weather-container">
+          <label for="temp">Current Temp:</label>
+          <div id="temp"></div>
+          <label for="weather">Current Weather:</label>
+          <div id="weather"></div>
+        </div>
+        <button onClick="window.location.href=window.location.href">Refresh Map</button>
+      </div>
     </div>
-    
-    <div class="longitude-container">
-      <label for="longitude">Longitude:</label>
-      <div id="longitude"></div>
+
+    <div id="instructions-container">
+      <div id="runner"></div>
     </div>
-    
-  
-    <div id="weather-container">
-      <label for="temp">Current Temp:</label>
-      <div id="temp"></div>
-      <label for="weather">Current Weather:</label>
-      <div id="weather"></div>
-    </div>
-    <button onClick="window.location.href=window.location.href">Refresh Map</button>
   </div>
-  
+
   <div class="map-container-inner">
     <div id="map"></div>
   </div>ß
