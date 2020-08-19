@@ -6,7 +6,7 @@ loader.style.display = "none";
 const runner = document.getElementById('runner')
 const score = document.getElementById('score')
 let targetState;
-console.log(targetState);
+const streak = document.getElementById('streak')
 
 startGame() 
 
@@ -25,6 +25,7 @@ document.getElementById('fetch-weather').textContent = "Fetching weather...";
 // Canvas.createCanvas();
 
 function startGame() {
+
   targetState = undefined;
   initMap();
   runner.textContent = `Follow my travel instructions and see if you can Beat The Weather...before the Weather Beats You! Double click the map anywhere to begin.`
@@ -105,18 +106,23 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       if (prec_type === "rain" || weather.includes("rain") || weather.includes("shower")) {
         document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
         alert('You got caught in the rain!');
+        let currentScore = score.textContent;
         score.textContent = 0;
         runner.textContent = `You got caught in the rain! Double click the map anywhere to play again.`
         targetState = undefined;
+        updateStreak(currentScore);
       } else if (targetState !== undefined && targetState !== state) {
         alert('Wrong state, mate!');
         runner.textContent = `Wrong state, mate! Double click the map anywhere to play again.`
+        let currentScore = score.textContent;
         score.textContent = 0;
         targetState = undefined;
+        updateStreak(currentScore);
       } else {
         targetState = states[Math.floor(Math.random() * states.length)];
         score.textContent = parseInt(score.textContent) + 1;
         runner.textContent = `The weather is nice here in ${city}, ${state}, isn't it? Now find some nice weather in ${targetState}.`
+        updateStreak(score.textContent);
       }
     })
     .catch((error) => console.log(error)
@@ -126,6 +132,13 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
  
 }
 
+function updateStreak (currentScore) {
+
+  if (currentScore > streak.textContent) streak.textContent = currentScore;
+   
+  console.log(current);
+  console.log(streak);
+}
 // function turn(data, prevLat, prevLng, target) {
 //   updateScore(data, prevLat, prevLng)
 // }

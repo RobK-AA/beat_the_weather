@@ -18,6 +18,12 @@
     <div id="loader"><span id="fetch-weather"></span></div>
   </div>
   <div id="main-container">
+    <div id="streak-banner">
+      <div id="streak-container">
+        <label for="streak">Your High Score:</label>
+        <div id="streak">0</div>
+      </div>
+    </div>
     <div id="info-banner">
       <div class="score-container">
         <label for="score">Score:</label>
@@ -42,7 +48,7 @@
           <label for="weather">Current Weather:</label>
           <div id="weather"></div>
         </div>
-        <button onClick="window.location.href=window.location.href">Refresh Map</button>
+        
       </div>
     </div>
 
@@ -53,7 +59,7 @@
 
   <div class="map-container-inner">
     <div id="map"></div>
-  </div>ß
+  </div>
   
   
   <script src="./dist/main.js"></script>

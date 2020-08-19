@@ -14,22 +14,22 @@ body > #header {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   -webkit-text-fill-color: whitesmoke;
   -webkit-text-stroke-color: black;
+  text-shadow: 2px 2px black;
   font-weight: 700;
   align-items: center;
   display: flex;
-  flex-direction: column;
-  text-shadow: 2px 2px black;
+  flex-direction: column; 
 }
 
 #runner {
-  font-family: monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  width: 65%;
+  text-shadow: none;
 }
 
 #map {
-      height: 400px;
-      width: 800px;
+      height: 450px;
+      width: 900px;
       cursor: auto;
       cursor: url(/dist/images/clear.png), auto !important;
       border: solid black 5px;
@@ -74,7 +74,6 @@ body > #header {
 .score-container {
   text-align: -webkit-center;
   font-weight: 700;
-  font-family: monospace;
   font-size: 30px;
 }
 .location {
@@ -86,7 +85,7 @@ body > #header {
 
 .latitude-container, .longitude-container, #latitude, #longitude {
   text-align: left;
-  display: flex;
+  display: none;
 }
 
 .latitude, .longitude {
@@ -100,14 +99,34 @@ body > #header {
 
 #main-container {
   display: flex;
+  -webkit-text-fill-color: gray;
+  -webkit-text-stroke-color: black;
+  text-shadow: 2px 2px black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #info-banner {
-  width: 50%;
+  width: 30%;
   display: inline-block;
 }
 
 #instructions-container {
-  width: 50%;
+  width: 30%;
   display: inline-block;
+  margin-right: 5%;
+}
+
+#weather-container {
+  display: none;
+}
+
+#streak-banner {
+  width: 30%;
+  display: inline-block;
+}
+
+#streak-container {
+  text-align: -webkit-center;
+  font-weight: 700;
+  font-size: 30px;
 }
