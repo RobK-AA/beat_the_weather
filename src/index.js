@@ -134,7 +134,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
 
 function updateStreak (currentScore) {
 
-  if (currentScore > streak.textContent) streak.textContent = currentScore;
+  if (parseInt(currentScore) > parseInt(streak.textContent)) streak.textContent = parseInt(currentScore);
    
   console.log(current);
   console.log(streak);
