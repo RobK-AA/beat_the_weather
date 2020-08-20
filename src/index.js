@@ -7,6 +7,8 @@ const runner = document.getElementById('runner')
 const score = document.getElementById('score')
 let targetState;
 const streak = document.getElementById('streak')
+const clock = document.getElementById('clock')
+const clockLabel = document.getElementById('clock-label')
 
 startGame() 
 
@@ -25,14 +27,14 @@ document.getElementById('fetch-weather').textContent = "Fetching weather...";
 // Canvas.createCanvas();
 
 function startGame() {
-
+  if (!clock.textContent) clockLabel.style.display = "none";
   targetState = undefined;
   initMap();
-  runner.textContent = `Follow my travel instructions and see if you can Beat The Weather...before the Weather Beats You! Double click the map anywhere to begin.`
+  runner.textContent = `Follow my instructions, watch the clock and see if you can beat the weather...before the weather beats you! Double click the map anywhere to begin.`
 }
 
 function initMap() {
-  // debugger;
+
   let map;
   let latitude = 40 - Math.random();
   let longitude = -99 + Math.random();
@@ -56,6 +58,8 @@ function initMap() {
     document.getElementById("longitude").textContent = longitude;
     document.getElementById('body').style.backgroundImage = "url('https://thumbs.gfycat.com/GargantuanMammothFrogmouth-size_restricted.gif')"
     getWeather(latitude, longitude, prevLat, prevLng);
+    clock.textContent = 10
+    tick();
   });
   
 }
@@ -79,10 +83,11 @@ function getWeather(lat, long, prevLat, prevLng) {
 }
 
 function updateScore(weatherData, prevLat, prevLng) {
-  // debugger
+
   let newLat = document.getElementById('latitude').textContent
   let newLng = document.getElementById('longitude').textContent
   getLocation(newLat, newLng, weatherData, prevLat, prevLng);
+  
   loader.style.display = "none"
 };
 
@@ -110,6 +115,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         score.textContent = 0;
         runner.textContent = `You got caught in the rain! Double click the map anywhere to play again.`
         targetState = undefined;
+        clock.textContent = "";
         updateStreak(currentScore);
       } else if (targetState !== undefined && targetState !== state) {
         alert('Wrong state, mate!');
@@ -117,28 +123,38 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         let currentScore = score.textContent;
         score.textContent = 0;
         targetState = undefined;
+        clock.textContent = "";
         updateStreak(currentScore);
       } else {
         targetState = states[Math.floor(Math.random() * states.length)];
         score.textContent = parseInt(score.textContent) + 1;
         runner.textContent = `The weather is nice here in ${city}, ${state}, isn't it? Now find some nice weather in ${targetState}.`
         updateStreak(score.textContent);
+        
       }
     })
     .catch((error) => console.log(error)
     );
-
   loader.style.display = "none"
- 
 }
 
 function updateStreak (currentScore) {
-
-  if (parseInt(currentScore) > parseInt(streak.textContent)) streak.textContent = parseInt(currentScore);
-   
-  console.log(current);
-  console.log(streak);
+  if (parseInt(currentScore) > parseInt(streak.textContent)) {
+    streak.textContent = parseInt(currentScore);
+  }
 }
-// function turn(data, prevLat, prevLng, target) {
-//   updateScore(data, prevLat, prevLng)
-// }
+
+const tick = setInterval(function() {
+  if (clock.textContent) clockLabel.style.display = "block";
+  if (parseInt(clock.textContent) > 0 && loader.style.display === "none") {
+    clock.textContent = parseInt(clock.textContent) - 1
+  } else if (parseInt(clock.textContent) === 0) {
+    alert('Out of time!');
+    runner.textContent = `You ran out of time! Double click the map anywhere to play again.`
+    let currentScore = score.textContent;
+    score.textContent = 0;
+    targetState = undefined;
+    updateStreak(currentScore);
+    clock.textContent = "";
+  }
+}, 1000)
