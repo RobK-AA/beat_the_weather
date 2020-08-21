@@ -67,7 +67,7 @@ function getWeather(lat, long, prevLat, prevLng) {
   
   loader.style.display = "block";
   
-  fetch(`http://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=civil&output=json`)
+  fetch(`http://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=civil&output=json`, { mode: 'cors' })
     .then((response) => response.json())
     .then((data) => {
       
