@@ -1,5 +1,4 @@
 import "./styles/index.scss";
-// import Canvas from "./scripts/canvas";
 
 const loader = document.getElementById('loader');
 loader.style.display = "none";
@@ -24,7 +23,6 @@ const states = [
 ]
 
 document.getElementById('fetch-weather').textContent = "Fetching weather...";
-// Canvas.createCanvas();
 
 function startGame() {
   if (!clock.textContent) clockLabel.style.display = "none";
@@ -59,15 +57,16 @@ function initMap() {
     document.getElementById('body').style.backgroundImage = "url('https://thumbs.gfycat.com/GargantuanMammothFrogmouth-size_restricted.gif')"
     getWeather(latitude, longitude, prevLat, prevLng);
     clock.textContent = 10
-    tick();
+    tick;
   });
   
 }
 
 
 function getWeather(lat, long, prevLat, prevLng) {
-  // debugger
+  
   loader.style.display = "block";
+  debugger
   fetch(`http://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=civil&output=json`)
     .then((response) => response.json())
     .then((data) => {
@@ -104,10 +103,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       locationData = data;
       console.log(data);
       const { city, state } = locationData.address;
-      // const city = document.getElementById('city-display') || document.createElement('div');
-      // city.id = "city-display"
-      // city.textContent = `City: ${data.display_name}`;
-      // document.getElementById('location-box').append(city)
+      
       if (prec_type === "rain" || weather.includes("rain") || weather.includes("shower")) {
         document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
         alert('You got caught in the rain!');
