@@ -67,13 +67,18 @@ function getWeather(lat, long, prevLat, prevLng) {
   
   loader.style.display = "block";
   
-  fetch(`http://www.7timer.info/bin/api.pl?lon=${long}&lat=${lat}&product=civil&output=json`)
-    .then((response) => response.json())
-    .then((data) => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=bd9ea9b48f291160192d69ca01301a7f`)
+    .then((response) => {
       
-      document.getElementById('temp').textContent = data.dataseries[0].rh2m;
-      document.getElementById("weather").textContent = data.dataseries[0].weather;
+      return response.json();
+    })
+    .then((data) => {
       console.log(data);
+
+      
+      // document.getElementById('temp').textContent = data.dataseries[0].rh2m;
+      // document.getElementById("weather").textContent = data.dataseries[0].weather;
+      
       updateScore(data, prevLat, prevLng);
       
     })
@@ -95,7 +100,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
   let newLat = document.getElementById('latitude').textContent
   let newLng = document.getElementById('longitude').textContent
   let locationData;
-  const { prec_type, rh2m, weather } = weatherData.dataseries[0];
+  const { description, main } = weatherData.weather[0];
   fetch(`https://us1.locationiq.com/v1/reverse.php?key=9819a97aea2239&lat=${lat}&lon=${lng}&format=json`)
     .then((response) => response.json())
     .then((data) => {
@@ -104,7 +109,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       console.log(data);
       const { city, state } = locationData.address;
       
-      if (prec_type === "rain" || weather.includes("rain") || weather.includes("shower")) {
+      if (description.includes("rain") || description.includes("shower") || main.includes("rain") || main.includes("shower")) {
         document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
         alert('You got caught in the rain!');
         let currentScore = score.textContent;
