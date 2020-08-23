@@ -118,7 +118,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         targetState = undefined;
         clock.textContent = "";
         updateStreak(currentScore);
-      } else if (targetState !== undefined && targetState !== state) {
+      } else if ((targetState !== undefined) && (targetState !== state || state === undefined || locationData === undefined)) {
         alert('Wrong state, mate!');
         runner.textContent = `Wrong state, mate! Double click the map anywhere to play again.`
         let currentScore = score.textContent;
