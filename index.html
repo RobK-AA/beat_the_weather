@@ -13,7 +13,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ35mMQ6UmGSXr3-HbwJIfmUsQg0zt7WI&callback=initMap" >
     </script>
   <div id="header"> 
-    <h3 id="heading">Beat The Weather!</h3>
+    <div id="heading">Beat The Weather!</div>
     <div id="loader"><span id="fetch-weather"></span></div>
   </div>
   <div id="clock-container">
@@ -55,11 +55,11 @@
       </div>
     </div>
 
-    <div id="instructions-container">
-      <div id="runner"></div>
-    </div>
+    
   </div>
-
+  <div id="instructions-container">
+    <dialog open id="runner"></dialog>
+  </div>
   <div class="map-container-inner">
     <div id="map"></div>
   </div>

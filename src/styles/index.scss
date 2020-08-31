@@ -9,10 +9,11 @@ body {
 
 
 body > #header {
+  margin-bottom: 0.5%;
   text-align: center;
   font-size: 36px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  -webkit-text-fill-color: whitesmoke;
+  font-family: monospace;
+  -webkit-text-fill-color: gold;
   -webkit-text-stroke-color: black;
   text-shadow: 2px 2px black;
   font-weight: 700;
@@ -21,12 +22,18 @@ body > #header {
   flex-direction: column; 
 }
 
+#heading {
+  margin-top: 1.5%;
+}
 #runner {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
   font-size: 20px;
   text-shadow: none;
   -webkit-text-fill-color: black;
+  align-items: center;
+  text-align: center;
+  width: 50%;
 }
 
 #map {
@@ -36,6 +43,7 @@ body > #header {
       cursor: url(/dist/images/clear.png), auto !important;
       border: solid black 5px;
       margin-top: 10px;
+      position: relative;
 }
 
 #map > div {
@@ -108,12 +116,17 @@ body > #header {
   text-align: -webkit-center;
 }
 
+#map {
+  margin-top: 8%;
+}
+
 #main-container, #clock-container {
   display: flex;
   -webkit-text-fill-color: gray;
   -webkit-text-stroke-color: black;
   text-shadow: 2px 2px black;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-bottom: 2%;
 }
 
 #clock-container {
@@ -123,24 +136,30 @@ body > #header {
 }
 
 #info-banner {
-  width: 30%;
+  width: 50%;
   display: inline-block;
+  margin-right: 20%;
+}
+
+#streak-banner {
+  width: 50%;
+  display: inline-block;
+  margin-left: 20%;
 }
 
 #instructions-container {
-  width: 30%;
-  display: inline-block;
-  margin-right: 5%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 100%;
+  z-index: 3;
 }
 
 #weather-container {
   display: none;
 }
 
-#streak-banner {
-  width: 30%;
-  display: inline-block;
-}
+
 
 #streak-container {
   text-align: -webkit-center;

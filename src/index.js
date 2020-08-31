@@ -46,7 +46,7 @@ function initMap() {
     draggableCursor: "url(/dist/images/clear.png), auto !important",
     draggingCursor: "url(/dist/images/clear.png), auto !important",
   });
-
+  
   google.maps.event.addListener(map, "dblclick", function (e) {
     latitude = e.latLng.lat();
     longitude = e.latLng.lng();
@@ -58,13 +58,14 @@ function initMap() {
     getWeather(latitude, longitude, prevLat, prevLng);
     clock.textContent = 10
     tick;
+    
   });
   
 }
 
 
 function getWeather(lat, long, prevLat, prevLng) {
-  
+  map.style.borderColor = "gold";
   loader.style.display = "block";
   
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=bd9ea9b48f291160192d69ca01301a7f`)
@@ -100,6 +101,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
   let newLat = document.getElementById('latitude').textContent
   let newLng = document.getElementById('longitude').textContent
   let locationData;
+  map.style.borderColor = "black";
   const { description, main } = weatherData.weather[0];
   fetch(`https://us1.locationiq.com/v1/reverse.php?key=9819a97aea2239&lat=${lat}&lon=${lng}&format=json`)
     .then((response) => response.json())
@@ -111,7 +113,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       
       if (description.includes("rain") || description.includes("shower") || main.includes("rain") || main.includes("shower")) {
         document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
-        alert('You got caught in the rain!');
+        // alert('You got caught in the rain!');
         let currentScore = score.textContent;
         score.textContent = 0;
         runner.textContent = `You got caught in the rain! Double click the map anywhere to play again.`
@@ -119,7 +121,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         clock.textContent = "";
         updateStreak(currentScore);
       } else if ((targetState !== undefined) && (targetState !== state || state === undefined || locationData === undefined)) {
-        alert('Wrong state, mate!');
+        // alert('Wrong state, mate!');
         runner.textContent = `Wrong state, mate! Double click the map anywhere to play again.`
         let currentScore = score.textContent;
         score.textContent = 0;
@@ -150,7 +152,7 @@ const tick = setInterval(function() {
   if (parseInt(clock.textContent) > 0 && loader.style.display === "none") {
     clock.textContent = parseInt(clock.textContent) - 1
   } else if (parseInt(clock.textContent) === 0) {
-    alert('Out of time!');
+    // alert('Out of time!');
     runner.textContent = `You ran out of time! Double click the map anywhere to play again.`
     let currentScore = score.textContent;
     score.textContent = 0;
