@@ -45,6 +45,26 @@ function initMap() {
     cursor: "url(/dist/images/clear.png), auto !important",
     draggableCursor: "url(/dist/images/clear.png), auto !important",
     draggingCursor: "url(/dist/images/clear.png), auto !important",
+    styles: [{
+      "featureType": "all",
+      "elementType": "labels",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    }, {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, 
+      {}]
   });
   
   google.maps.event.addListener(map, "dblclick", function (e) {
