@@ -2,10 +2,13 @@ import "./styles/index.scss";
 
 const loader = document.getElementById('loader');
 loader.style.display = "none";
+loader.style.position = "relative";
 const runner = document.getElementById('runner')
 const score = document.getElementById('score')
 let targetState;
 const streak = document.getElementById('streak')
+let highScore = getHighScore();
+streak.textContent = parseInt(highScore);
 const clock = document.getElementById('clock')
 const clockLabel = document.getElementById('clock-label')
 
@@ -86,22 +89,15 @@ function initMap() {
 
 function getWeather(lat, long, prevLat, prevLng) {
   map.style.borderColor = "gold";
-  loader.style.display = "block";
-  
+  loader.style.display = "inline-block";
+
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=bd9ea9b48f291160192d69ca01301a7f`)
     .then((response) => {
-      
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-
-      
-      // document.getElementById('temp').textContent = data.dataseries[0].rh2m;
-      // document.getElementById("weather").textContent = data.dataseries[0].weather;
-      
+      // console.log(data);
       updateScore(data, prevLat, prevLng);
-      
     })
     .catch((error) => console.log(error)
     );
@@ -128,7 +124,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
     .then((data) => {
       
       locationData = data;
-      console.log(data);
+      // console.log(data);
       const { city, state } = locationData.address;
       
       if (description.includes("rain") || description.includes("shower") || main.includes("rain") || main.includes("shower")) {
@@ -164,6 +160,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
 function updateStreak (currentScore) {
   if (parseInt(currentScore) > parseInt(streak.textContent)) {
     streak.textContent = parseInt(currentScore);
+    localStorage.setItem('highScore', parseInt(currentScore));
   }
 }
 
@@ -181,3 +178,7 @@ const tick = setInterval(function() {
     clock.textContent = "";
   }
 }, 1000)
+
+function getHighScore() {
+  return localStorage.getItem('highScore') || '0';
+}

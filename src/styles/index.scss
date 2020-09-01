@@ -52,11 +52,11 @@ body > #header {
 }
 
 #loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 50px;
+  height: 50px;
   animation: spin 2s linear infinite;
   text-align: center;
   font-family: monospace;
@@ -75,8 +75,8 @@ body > #header {
   display: block;
   text-align: center;
   animation: no-spin 2s linear infinite;
-  margin-top: 42px;
-  font-size: 16px;
+  margin-top: 8px;
+  font-size: 14px;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -127,6 +127,7 @@ body > #header {
   text-shadow: 2px 2px black;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   margin-bottom: 2%;
+  align-items: center;
 }
 
 #clock-container {
@@ -136,15 +137,17 @@ body > #header {
 }
 
 #info-banner {
-  width: 50%;
+  width: 45%;
   display: inline-block;
   margin-right: 20%;
+  margin-left: auto;
 }
 
 #streak-banner {
-  width: 50%;
+  width: 45%;
   display: inline-block;
   margin-left: 20%;
+  margin-right: auto;
 }
 
 #instructions-container {
