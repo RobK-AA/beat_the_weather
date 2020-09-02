@@ -147,7 +147,12 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       } else {
         targetState = states[Math.floor(Math.random() * states.length)];
         score.textContent = parseInt(score.textContent) + 1;
-        runner.textContent = `The weather is nice here in ${city}, ${state}, isn't it? Now find some nice weather in ${targetState}.`
+        if (city) {
+          runner.textContent = `The weather is nice here in ${city}, ${state}, isn't it? Now find some nice weather in ${targetState}.`
+        } else {
+          runner.textContent = `The weather is nice here in ${state}, isn't it? Now find some nice weather in ${targetState}.`
+        }
+        
         updateStreak(score.textContent);
         
       }
