@@ -11,8 +11,17 @@ let highScore = getHighScore();
 streak.textContent = parseInt(highScore);
 const clock = document.getElementById('clock')
 const clockLabel = document.getElementById('clock-label')
+const modalContent = document.getElementById('modal-body')
+const modalHeader = document.getElementById('modal-header')
+const modal = document.getElementById('modal-container')
+modal.style.display = "none"
+const body = document.getElementById('body')
 
 startGame() 
+
+body.addEventListener("click", () => {
+  modal.style.display = "none"
+});
 
 const states = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 
@@ -31,7 +40,17 @@ function startGame() {
   if (!clock.textContent) clockLabel.style.display = "none";
   targetState = undefined;
   initMap();
+  displayModal();
   runner.textContent = `Follow my instructions, watch the clock and see if you can beat the weather...before the weather beats you! Double click the map anywhere to begin.`
+}
+
+function displayModal() {
+  modal.style.display = "flex";
+  
+  modal.style.flexDirection = "column"
+  modalHeader.textContent = "Welcome to Beat the Weather!";
+  modalContent.textContent = "This game was developed with JavaScript, HTML5, & CSS3. It utilizes the following API's: Google Maps, Open Weather Map and LocationIQ.";
+
 }
 
 function initMap() {
@@ -152,9 +171,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         } else {
           runner.textContent = `The weather is nice here in ${state}, isn't it? Now find some nice weather in ${targetState}.`
         }
-        
         updateStreak(score.textContent);
-        
       }
     })
     .catch((error) => console.log(error)

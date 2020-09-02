@@ -35,6 +35,43 @@ body > #header {
 #heading {
   margin-top: 1.5%;
 }
+
+#modal-container {
+  position: absolute;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+  z-index: 5 !important;
+  align-items: center;
+  display: flex;
+  height: 450px;
+  width: 600px;
+  box-shadow: 4px 6px black;
+  overflow: visible;
+  background-color: whitesmoke;
+}
+
+#modal {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  -webkit-text-fill-color: blue;
+  -webkit-text-stroke-color: black;
+  text-shadow: 1px 1px black;
+  font-weight: 700;
+  padding: 5%;
+  
+  
+}
+
+#modal-header {
+  padding-bottom: 3%;
+  font-size: 20px;
+  font-weight: 700;
+  -webkit-text-fill-color: black;
+}
+
 #runner {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 700;
@@ -205,6 +242,7 @@ body > #header {
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  
 }
 
 #links-container {
@@ -216,6 +254,7 @@ body > #header {
   width: 100px;
   padding-left: 1rem;
   padding-right: 1rem;
+  
 }
 
 #links1, #links2, #links3 {
@@ -224,7 +263,7 @@ body > #header {
   display: inline-block;
   margin: 0;
   padding: 0;
-
+  
 }
 
 #github {
