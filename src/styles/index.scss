@@ -32,19 +32,20 @@ body {
 body > #header {
   margin-bottom: 0.5%;
   text-align: center;
-  font-size: 36px;
-  font-family: monospace;
-  -webkit-text-fill-color: gold;
+  font-size: 48px;
+  -webkit-text-fill-color: rgb(0, 56, 50);
   -webkit-text-stroke-color: black;
-  text-shadow: 2px 2px black;
-  font-weight: 700;
+  text-shadow: 1.25px 1.25px black;
+  font-weight: 500;
   align-items: center;
   display: flex;
   flex-direction: column; 
 }
 
 #heading {
-  margin-top: 1.5%;
+  margin-top: 1%;
+  font-family: Permanent Marker, sans-serif;
+  z-index: 2;
 }
 
 #modal-container {
@@ -66,14 +67,13 @@ body > #header {
   display: block;
   text-align: center;
   font-size: 16px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  -webkit-text-fill-color: blue;
+  font-family: Montserrat, sans-serif;
+  -webkit-text-fill-color: rgb(3, 53, 3);
   -webkit-text-stroke-color: black;
-  text-shadow: 1px 1px black;
+  text-shadow: .5px .5px black;
   font-weight: 700;
   padding: 5%;
-  
-  
+  line-height: 2;
 }
 
 #modal-header {
@@ -81,10 +81,11 @@ body > #header {
   font-size: 20px;
   font-weight: 700;
   -webkit-text-fill-color: black;
+  font-family: Spartan, serif;
 }
 
 #runner {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Alegreya Sans, serif;
   font-weight: 700;
   font-size: 20px;
   text-shadow: none;
@@ -191,7 +192,9 @@ body > #header {
 #clock-container {
   justify-content: center;
   font-size: 30px;
-  margin-bottom: 1rem;
+  margin-bottom: 1%;
+  font-family: Montserrat, serif;
+  z-index: 2;
 }
 
 #info-banner {
@@ -199,6 +202,8 @@ body > #header {
   display: inline-block;
   margin-right: 20%;
   margin-left: auto;
+  font-family: Montserrat, serif;
+  z-index: 2;
 }
 
 #streak-banner {
@@ -206,6 +211,8 @@ body > #header {
   display: inline-block;
   margin-left: 20%;
   margin-right: auto;
+  font-family: Montserrat, serif;
+  z-index: 2;
 }
 
 #instructions-container {
@@ -214,6 +221,7 @@ body > #header {
   position: relative;
   height: 100%;
   z-index: 3;
+  
 }
 
 #weather-container {
@@ -245,7 +253,9 @@ body > #header {
 
 #footer-name {
   font-size: 18px;
+  font-family: Press Start 2P, Serif;
 }
+
 #links {
   display: inline-flex;
   justify-content: center;

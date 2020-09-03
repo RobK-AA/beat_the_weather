@@ -101,9 +101,7 @@ function initMap() {
     getWeather(latitude, longitude, prevLat, prevLng);
     clock.textContent = 10
     tick;
-    
   });
-  
 }
 
 
