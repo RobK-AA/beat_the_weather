@@ -94,6 +94,7 @@ function initMap() {
     longitude = e.latLng.lng();
     const prevLat = document.getElementById('latitude').textContent
     const prevLng = document.getElementById('longitude').textContent
+    rainBackground.style.display = "none";
     document.getElementById("latitude").textContent = latitude;
     document.getElementById("longitude").textContent = longitude;
     // document.getElementById('body').style.backgroundImage = "url('https://thumbs.gfycat.com/GargantuanMammothFrogmouth-size_restricted.gif')"
