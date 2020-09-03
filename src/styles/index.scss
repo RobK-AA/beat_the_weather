@@ -75,6 +75,21 @@ body > #header {
   padding: 5%;
   line-height: 2;
 }
+#modal #links #portfolio-link #portfolio-modal {
+  line-height: normal;
+  font-family: Press Start P2, monospace;
+}
+
+#portfolio-link > #portfolio-modal {
+  font-family: Press Start P2, monospace;
+  margin-top: 4px;
+  margin-left: 1rem;
+}
+
+#modal #portfolio-link {
+  display: flex;
+  flex-direction: column;
+}
 
 #modal-header {
   padding-bottom: 3%;
@@ -84,6 +99,14 @@ body > #header {
   font-family: Spartan, serif;
 }
 
+#modal-api {
+  font-family: Kumbh Sans, serif;
+  font-size: 13px;
+}
+
+#modal-footer > #links {
+  right: 10px;
+}
 #runner {
   font-family: Alegreya Sans, serif;
   font-weight: 700;
@@ -308,6 +331,7 @@ body > #header {
   width: 50px;
   display: block;
 }
+
 #portfolio {
   display: block;
   font-weight: 700;

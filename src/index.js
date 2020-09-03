@@ -11,7 +11,7 @@ let highScore = getHighScore();
 streak.textContent = parseInt(highScore);
 const clock = document.getElementById('clock');
 const clockLabel = document.getElementById('clock-label');
-const modalContent = document.getElementById('modal-body');
+const modalContentHeader = document.getElementById('modal-body3');
 const modalHeader = document.getElementById('modal-header');
 const modal = document.getElementById('modal-container');
 modal.style.display = "none";
@@ -50,7 +50,7 @@ function displayModal() {
   modal.style.display = "flex";
   modal.style.flexDirection = "column"
   modalHeader.textContent = "Welcome to Beat the Weather!";
-  modalContent.textContent = "This game was developed with JavaScript, HTML5, & CSS3. It utilizes the following API's: Google Maps, Open Weather Map and LocationIQ.";
+  modalContentHeader.textContent = "This game was developed with: ";
 }
 
 function initMap() {
