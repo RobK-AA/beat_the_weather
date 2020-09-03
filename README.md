@@ -12,6 +12,6 @@ In "Beat The Weather," players are able to
     - navigating to an area with "bad weather"
     - navigating to the wrong state
     - running out of time
-  - record the player's high score and persist that data in the web browser
+  - record their high score and have that data persist in the web browser
 
 ![Wireframes](wireframes.png)
