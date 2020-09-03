@@ -8,7 +8,7 @@ body {
   position: relative;
 }
 
-.background-img > img {
+.background-img #rain {
     position: absolute;
     left: 0;
     top: 0;
@@ -16,6 +16,11 @@ body {
     height: auto;
     z-index: -1;
     opacity: 0.4;
+}
+
+#rain-background {
+  position: absolute;
+  top: -92%;
 }
 
 body > #header {

@@ -3,19 +3,20 @@ import "./styles/index.scss";
 const loader = document.getElementById('loader');
 loader.style.display = "none";
 loader.style.position = "relative";
-const runner = document.getElementById('runner')
-const score = document.getElementById('score')
+const runner = document.getElementById('runner');
+const score = document.getElementById('score');
 let targetState;
-const streak = document.getElementById('streak')
+const streak = document.getElementById('streak');
 let highScore = getHighScore();
 streak.textContent = parseInt(highScore);
-const clock = document.getElementById('clock')
-const clockLabel = document.getElementById('clock-label')
-const modalContent = document.getElementById('modal-body')
-const modalHeader = document.getElementById('modal-header')
-const modal = document.getElementById('modal-container')
-modal.style.display = "none"
-const body = document.getElementById('body')
+const clock = document.getElementById('clock');
+const clockLabel = document.getElementById('clock-label');
+const modalContent = document.getElementById('modal-body');
+const modalHeader = document.getElementById('modal-header');
+const modal = document.getElementById('modal-container');
+modal.style.display = "none";
+const body = document.getElementById('body');
+const rainBackground = document.getElementById('rain-background');
 
 startGame() 
 
@@ -39,6 +40,7 @@ document.getElementById('fetch-weather').textContent = "Fetching weather...";
 function startGame() {
   if (!clock.textContent) clockLabel.style.display = "none";
   targetState = undefined;
+  rainBackground.style.display = "none";
   initMap();
   displayModal();
   runner.textContent = `Follow my instructions, watch the clock and see if you can beat the weather...before the weather beats you! Double click the map anywhere to begin.`
@@ -46,11 +48,9 @@ function startGame() {
 
 function displayModal() {
   modal.style.display = "flex";
-  
   modal.style.flexDirection = "column"
   modalHeader.textContent = "Welcome to Beat the Weather!";
   modalContent.textContent = "This game was developed with JavaScript, HTML5, & CSS3. It utilizes the following API's: Google Maps, Open Weather Map and LocationIQ.";
-
 }
 
 function initMap() {
@@ -96,7 +96,7 @@ function initMap() {
     const prevLng = document.getElementById('longitude').textContent
     document.getElementById("latitude").textContent = latitude;
     document.getElementById("longitude").textContent = longitude;
-    document.getElementById('body').style.backgroundImage = "url('https://thumbs.gfycat.com/GargantuanMammothFrogmouth-size_restricted.gif')"
+    // document.getElementById('body').style.backgroundImage = "url('https://thumbs.gfycat.com/GargantuanMammothFrogmouth-size_restricted.gif')"
     getWeather(latitude, longitude, prevLat, prevLng);
     clock.textContent = 10
     tick;
@@ -147,7 +147,8 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       const { city, state } = locationData.address;
       
       if (description.includes("rain") || description.includes("shower") || main.includes("rain") || main.includes("shower")) {
-        document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
+        // document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
+        rainBackground.style.display = "block";
         // alert('You got caught in the rain!');
         let currentScore = score.textContent;
         score.textContent = 0;
