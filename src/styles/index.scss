@@ -125,6 +125,11 @@ body > #header {
 
 #clock-label {
   display: block;
+  z-index: 2;
+}
+
+#clock {
+  z-index: 2;
 }
 
 #fetch-weather {
@@ -301,14 +306,18 @@ body > #header {
   background-size: 50px;
   height: 25px;
   width: 50px;
-  
   display: block;
 }
 #portfolio {
   display: block;
-  font-family: monospace;
   font-weight: 700;
   margin-top: 5px;
+}
+
+#portfolio-link {
+  text-decoration: none;
+  font-family: Press Start 2P, Serif;
+  color: black;
 }
 
 #github, #linkedIn, #portfolio {
