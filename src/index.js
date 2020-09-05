@@ -114,7 +114,7 @@ function getWeather(lat, long, prevLat, prevLng) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       updateScore(data, prevLat, prevLng);
     })
     .catch((error) => console.log(error)
@@ -142,7 +142,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
     .then((data) => {
       
       locationData = data;
-      console.log(data);
+      // console.log(data);
       if (locationData.address === undefined) {
         if (targetState !== undefined) {
           runner.textContent = `We're in uncharted waters, my friend. This sure ain't ${targetState}. Double click the map anywhere to start over.`;
@@ -164,7 +164,11 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         // alert('You got caught in the rain!');
         let currentScore = score.textContent;
         score.textContent = 0;
-        runner.textContent = `You got caught in the rain! Double click the map anywhere to play again.`
+        if (city) {
+          runner.textContent = `You got caught in the rain! The forecast here in ${city}, ${state} is ${description}. Double click the map anywhere to play again.`
+        } else {
+          runner.textContent = `You got caught in the rain! The forecast here in this part of ${state} is ${description}. Double click the map anywhere to play again.`
+        }
         targetState = undefined;
         clock.textContent = "";
         updateStreak(currentScore);
