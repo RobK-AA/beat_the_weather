@@ -114,7 +114,7 @@ function getWeather(lat, long, prevLat, prevLng) {
       return response.json();
     })
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       updateScore(data, prevLat, prevLng);
     })
     .catch((error) => console.log(error)
@@ -142,8 +142,21 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
     .then((data) => {
       
       locationData = data;
-      // console.log(data);
-      const { city, state } = locationData.address;
+      console.log(data);
+      if (locationData.address === undefined) {
+        if (targetState !== undefined) {
+          runner.textContent = `We're in uncharted waters, my friend. This sure ain't ${targetState}. Double click the map anywhere to start over.`;
+        } else {
+          runner.textContent = `Click a spot over land. This edition of \'Beat The Weather\' includes the United States of America, so click accordingly.`;
+        }
+        
+        let currentScore = score.textContent;
+        score.textContent = 0;
+        targetState = undefined;
+        clock.textContent = "";
+        updateStreak(currentScore);
+      }
+      const { city, state, country } = locationData.address;
       
       if (description.includes("rain") || description.includes("shower") || main.includes("rain") || main.includes("shower")) {
         // document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
@@ -157,7 +170,12 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         updateStreak(currentScore);
       } else if ((targetState !== undefined) && (targetState !== state || state === undefined || locationData === undefined)) {
         // alert('Wrong state, mate!');
-        runner.textContent = `Wrong state, mate! Double click the map anywhere to play again.`
+        if (country === "United States of America") {
+          runner.textContent = `Wrong state, mate! This is ${state}, not ${targetState}. Double click the map anywhere to play again.`
+        } else if (country !== "United States of America") {
+          runner.textContent = `This is ${country}. Countries outside of the United States are coming in future editions of \'Beat The Weather\'! Double click the map anywhere to play again.`
+        }
+        
         let currentScore = score.textContent;
         score.textContent = 0;
         targetState = undefined;
@@ -166,10 +184,17 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       } else {
         targetState = states[Math.floor(Math.random() * states.length)];
         score.textContent = parseInt(score.textContent) + 1;
+        let skies = description;
+        if (description === "clear sky") {
+          skies = "clear skies"
+        } else if (description === "broken clouds") {
+          skies = "cloudy"
+        }
+        
         if (city) {
-          runner.textContent = `The weather is nice here in ${city}, ${state}, isn't it? Now find some nice weather in ${targetState}.`
+          runner.textContent = `Good work. You found some nice weather - the forecast here in ${city}, ${state} is ${skies}. Now find some nice weather in ${targetState}.`
         } else {
-          runner.textContent = `The weather is nice here in ${state}, isn't it? Now find some nice weather in ${targetState}.`
+          runner.textContent = `Good work. You found some nice weather - the forecast here in this part of ${state} is ${skies}. Now find some nice weather in ${targetState}.`
         }
         updateStreak(score.textContent);
       }
