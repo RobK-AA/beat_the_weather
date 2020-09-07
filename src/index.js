@@ -18,6 +18,7 @@ modal.style.display = "none";
 const body = document.getElementById('body');
 const rainBackground = document.getElementById('rain-background');
 
+
 startGame() 
 
 body.addEventListener("click", () => {
@@ -38,9 +39,11 @@ const states = [
 document.getElementById('fetch-weather').textContent = "Fetching weather...";
 
 function startGame() {
+  clockLabel.textContent = "Clock:";
   if (!clock.textContent) clockLabel.style.display = "none";
   targetState = undefined;
   rainBackground.style.display = "none";
+
   initMap();
   displayModal();
   runner.textContent = `Follow my instructions, watch the clock and see if you can beat the weather...before the weather beats you! Double click the map anywhere to begin.`
@@ -101,6 +104,7 @@ function initMap() {
     getWeather(latitude, longitude, prevLat, prevLng);
     clock.textContent = 10
     tick;
+    
   });
 }
 
@@ -122,7 +126,7 @@ function getWeather(lat, long, prevLat, prevLng) {
 }
 
 function updateScore(weatherData, prevLat, prevLng) {
-
+  
   let newLat = document.getElementById('latitude').textContent
   let newLng = document.getElementById('longitude').textContent
   getLocation(newLat, newLng, weatherData, prevLat, prevLng);
@@ -209,13 +213,17 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
 }
 
 function updateStreak (currentScore) {
+  
   if (parseInt(currentScore) > parseInt(streak.textContent)) {
     streak.textContent = parseInt(currentScore);
     localStorage.setItem('highScore', parseInt(currentScore));
   }
 }
 
+
+
 const tick = setInterval(function() {
+
   if (clock.textContent) clockLabel.style.display = "block";
   if (parseInt(clock.textContent) > 0 && loader.style.display === "none") {
     clock.textContent = parseInt(clock.textContent) - 1
