@@ -112,7 +112,7 @@ function initMap() {
 function getWeather(lat, long, prevLat, prevLng) {
   map.style.borderColor = "gold";
   loader.style.display = "inline-block";
-
+  debugger
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=bd9ea9b48f291160192d69ca01301a7f`)
     .then((response) => {
       return response.json();
