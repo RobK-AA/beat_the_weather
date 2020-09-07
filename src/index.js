@@ -74,7 +74,7 @@ function initMap() {
       "featureType": "all",
       "elementType": "labels",
       "stylers": [{
-        "visibility": "off"
+        "visibility": "on"
       }]
     }, {
         "featureType": "administrative.land_parcel",
