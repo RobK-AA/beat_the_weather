@@ -21,9 +21,9 @@ const rainBackground = document.getElementById('rain-background');
 
 startGame() 
 
-body.addEventListener("click", () => {
+body.addEventListener("click", (e) => {
   modal.style.display = "none"
-});
+}, { passive: true });
 
 const states = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 
@@ -43,7 +43,7 @@ function startGame() {
   if (!clock.textContent) clockLabel.style.display = "none";
   targetState = undefined;
   rainBackground.style.display = "none";
-
+  
   initMap();
   displayModal();
   runner.textContent = `Follow my instructions, watch the clock and see if you can beat the weather...before the weather beats you! Double click the map anywhere to begin.`
@@ -91,7 +91,7 @@ function initMap() {
       }, 
       {}]
   });
-  
+
   google.maps.event.addListener(map, "dblclick", function (e) {
     latitude = e.latLng.lat();
     longitude = e.latLng.lng();
@@ -105,14 +105,12 @@ function initMap() {
     clock.textContent = 10
     tick;
     
-  });
+  }, { passive: true });
 }
-
 
 function getWeather(lat, long, prevLat, prevLng) {
   map.style.borderColor = "gold";
   loader.style.display = "inline-block";
-  debugger
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=bd9ea9b48f291160192d69ca01301a7f`)
     .then((response) => {
       return response.json();
@@ -121,8 +119,8 @@ function getWeather(lat, long, prevLat, prevLng) {
       // console.log(data);
       updateScore(data, prevLat, prevLng);
     })
-    .catch((error) => console.log(error)
-    );
+    // .catch((error) => console.log(error)
+    // );
 }
 
 function updateScore(weatherData, prevLat, prevLng) {
@@ -207,8 +205,8 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         updateStreak(score.textContent);
       }
     })
-    .catch((error) => console.log(error)
-    );
+    // .catch((error) => console.log(error)
+    // );
   loader.style.display = "none"
 }
 
