@@ -14,4 +14,5 @@ In "Beat The Weather," players are able to
     - running out of time
   - record their high score and have that data persist in the web browser
 
-![Wireframes](dist/images/weather1.png)
+![Game Start](dist/images/weather1.png)
+![Rain Ending](dist/images/weather2.png)
