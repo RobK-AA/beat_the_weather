@@ -43,7 +43,6 @@ function startGame() {
   if (!clock.textContent) clockLabel.style.display = "none";
   targetState = undefined;
   rainBackground.style.display = "none";
-  
   initMap();
   displayModal();
   runner.textContent = `Follow my instructions, watch the clock and see if you can beat the weather...before the weather beats you! Double click the map anywhere to begin.`
@@ -111,6 +110,7 @@ function initMap() {
 function getWeather(lat, long, prevLat, prevLng) {
   map.style.borderColor = "gold";
   loader.style.display = "inline-block";
+  
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=bd9ea9b48f291160192d69ca01301a7f`)
     .then((response) => {
       return response.json();
