@@ -10,8 +10,10 @@ In "Beat The Weather," players are able to
   - receive visual feedback on navigation events, including 
     - double clicks on any area 
     - navigating to an area with "bad weather"
-    - navigating to the wrong state
+    - navigating to the wrong state or a location outside the United States
     - running out of time
+  - receive real-time weather forecast information for any location
   - record their high score and have that data persist in the web browser
 
-![Wireframes](wireframes.png)
+![Game Start](dist/images/weather1.png)
+![Rain Ending](dist/images/weather2.png)
