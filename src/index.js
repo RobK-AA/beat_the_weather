@@ -161,9 +161,7 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
       const { city, state, country } = locationData.address;
       
       if (description.includes("rain") || description.includes("shower") || main.includes("rain") || main.includes("shower")) {
-        // document.getElementById('body').style.backgroundImage = "url('https://bestanimations.com/Nature/Water/rain/rain-nature-animated-gif-32.gif')"
         rainBackground.style.display = "block";
-        // alert('You got caught in the rain!');
         let currentScore = score.textContent;
         score.textContent = 0;
         if (city) {
@@ -175,7 +173,6 @@ function getLocation(lat, lng, weatherData, prevLat, prevLng) {
         clock.textContent = "";
         updateStreak(currentScore);
       } else if ((targetState !== undefined) && (targetState !== state || state === undefined || locationData === undefined)) {
-        // alert('Wrong state, mate!');
         if (country === "United States of America") {
           runner.textContent = `Wrong state, mate! This is ${state}, not ${targetState}. Double click the map anywhere to play again.`
         } else if (country !== "United States of America") {
@@ -226,7 +223,6 @@ const tick = setInterval(function() {
   if (parseInt(clock.textContent) > 0 && loader.style.display === "none") {
     clock.textContent = parseInt(clock.textContent) - 1
   } else if (parseInt(clock.textContent) === 0) {
-    // alert('Out of time!');
     runner.textContent = `You ran out of time! Double click the map anywhere to play again.`
     let currentScore = score.textContent;
     score.textContent = 0;
