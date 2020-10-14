@@ -17,3 +17,24 @@ In "Beat The Weather," players are able to
 
 ![Game Start](dist/images/weather1.png)
 ![Rain Ending](dist/images/weather2.png)
+
+```
+const tick = setInterval(function() {
+
+  if (clock.textContent) clockLabel.style.display = "block";
+  if (parseInt(clock.textContent) > 0 && loader.style.display === "none") {
+    clock.textContent = parseInt(clock.textContent) - 1
+  } else if (parseInt(clock.textContent) === 0) {
+    runner.textContent = `You ran out of time! Double click the map anywhere to play again.`
+    let currentScore = score.textContent;
+    score.textContent = 0;
+    targetState = undefined;
+    updateStreak(currentScore);
+    clock.textContent = "";
+  }
+}, 1000)
+
+function getHighScore() {
+  return localStorage.getItem('highScore') || '0';
+}
+```
